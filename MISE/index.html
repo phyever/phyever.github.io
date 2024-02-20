@@ -13,9 +13,10 @@
     
 
     
-        <meta name="description" content="Authors: Wei Chen, Jiachen Zou, Xuming RanDate: May 17, 2023
+        <meta name="description" content="Authors: Wei Chen, Jiachen Zou, Xuming RanDate: May 17, 2023Supervisor: Professor Quanying Liu
 
-Introduction"/>
+IntroductionScientific Questions:
+Investigating the re"/>
     
 
     <!--Author-->
@@ -30,9 +31,10 @@ Introduction"/>
 
     <!--Open Graph Description-->
     
-        <meta property="og:description" content="Authors: Wei Chen, Jiachen Zou, Xuming RanDate: May 17, 2023
+        <meta property="og:description" content="Authors: Wei Chen, Jiachen Zou, Xuming RanDate: May 17, 2023Supervisor: Professor Quanying Liu
 
-Introduction"/>
+IntroductionScientific Questions:
+Investigating the re"/>
     
 
     <!--Open Graph Site Name-->
@@ -207,9 +209,59 @@ Introduction"/>
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p>Authors: Wei Chen, <strong>Jiachen Zou</strong>, Xuming Ran<br>Date: May 17, 2023</p>
+                <p>Authors: Wei Chen, <strong>Jiachen Zou</strong>, Xuming Ran<br>Date: May 17, 2023<br>Supervisor: Professor Quanying Liu</p>
 <p><img src="/img/mise_fig1.jpg" alt="framework"></p>
-<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><h3 id="Scientific-Questions"><a href="#Scientific-Questions" class="headerlink" title="Scientific Questions:"></a>Scientific Questions:</h3><ul>
+<li>Investigating the relationship between visual perception and human decision-making tasks, with a particular focus on the importance of visual semantic features and how these features help us understand the attributes and characteristics of objects.</li>
+<li>Explaining the impact of visual perception on behavioral decisions, exploring the role of visual semantic features in cognitive decision-making processes in humans and AI agents.</li>
+</ul>
+<h3 id="Research-Methods"><a href="#Research-Methods" class="headerlink" title="Research Methods:"></a>Research Methods:</h3><ul>
+<li>We introduced a computational model named Multimodal Interpretable Semantic Embeddings (MISE), which employs a model built on the CLIP model and linear mapping functions to simulate the process of visual perception and cognitive decision-making, performing similarity judgment tasks.</li>
+<li>The MISE model utilizes pre-trained visual encoders to extract visual features, and through a learnable cognitive decision module, calculates the similarity between features to make decisions, revealing the semantic properties of visual features within the model.</li>
+</ul>
+<figure>
+  <img src="/img/mise_fig2.jpg" alt="framework">
+  <figcaption style="text-align: center; color: #004400; font-weight: bold;">Figure 1: Similarity judgment -- odd one out task</figcaption>
+</figure>
+
+<h1 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h1><p><strong>Dataset Selection:</strong> Utilizes the THINGS dataset as the human behavior dataset, which contains similarity judgment data for different combinations of visual objects. Generates AI agent behavior dataset by performing similarity judgment tasks using the CLIP model; collects and establishes a lexicon of visual feature descriptors.</p>
+<p><strong>MISE Model Construction:</strong> Constructs the MISE model based on visual encoders and decision modules, simulating the process from visual stimulation to cognitive decision-making.</p>
+<p><strong>Interpretability Validation:</strong> Visualizes the interpretation of semantic features by the MISE model to verify its explanatory capability.</p>
+<figure>
+  <img src="/img/mise_fig3.jpg" alt="framework">
+  <figcaption style="text-align: center; color: #004400; font-weight: bold;">Figure 2: MISE architecture</figcaption>
+</figure>
+
+<h1 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h1><ul>
+<li><p><strong>MISE Model Accuracy in Behavioral Prediction Tasks:</strong> Compares the accuracy of the MISE model in behavioral prediction tasks against random guessing and the upper limit of human decision-making noise, validating the superiority of the MISE model. The MISE model demonstrates stable performance across various model variants and training methods, and is capable of accurately making decisions on unseen image triplets.</p>
+</li>
+<li><p><strong>MISE Model’s Interpretability of Semantic Features:</strong> Demonstrates the model’s interpretation of semantic features through word clouds and bar charts. The MISE model is capable of interpreting semantic features, providing a deep understanding of the features.</p>
+</li>
+</ul>
+<figure>
+  <img src="/img/mise_fig4.jpg" alt="framework">
+  <figcaption style="text-align: center; color: #004400; font-weight: bold;">Figure 3: Word cloud diagram of semantic feature dimensions</figcaption>
+</figure>
+
+<figure>
+  <img src="/img/mise_fig5.jpg" alt="framework">
+  <figcaption style="text-align: center; color: #004400; font-weight: bold;">Figure 4: Semantic features of objects decoded by MISE</figcaption>
+</figure>
+
+<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><ul>
+<li><p><strong>MISE Model Performance in Similarity Tasks:</strong> The MISE model shows excellent performance in similarity tasks, capable of making accurate decisions and generating reasonable and diverse explanations, thus validating the effectiveness of the model.</p>
+</li>
+<li><p><strong>Interpretability Analysis of Semantic Features in MISE Model:</strong> Through the interpretative analysis of semantic features in the MISE model, we have generated word clouds and bar charts to display the model’s interpretation and representation of semantic features. This further enhances our understanding of how the model interprets and represents objects, thereby validating the model’s interpretability.</p>
+</li>
+<li><p><strong>Capturing Key Semantic Features in Visual Stimuli with the MISE Model:</strong> The MISE model is able to capture key semantic features in visual stimuli, which are crucial for understanding and distinguishing different objects. By establishing a linear mapping relationship between visual features and semantic properties, we reveal the association between semantic attributes of visual stimuli and perceptual features. This helps to deepen the understanding of the relationship between visual perception and cognitive decision-making.</p>
+</li>
+</ul>
+<figure>
+  <img src="/img/best_poster.jpg" alt="framework">
+  <figcaption style="text-align: center; color: #004400; font-size: small; font-weight: bold;">The poster of this project won the Best Poster Award at the "Academic Exchange Day" of the Department of Biomedical Engineering of Southern University of Science and Technology.</figcaption>
+</figure>
+
+
 
                 
             </div>
