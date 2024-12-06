@@ -23,7 +23,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Synthesizing Images on Perceptual Boundaries of ANNs for Uncovering and Modulating Individual Human Percepts"/>
+        <meta property="og:title" content="Synthesizing Images on Perceptual Boundaries of ANNs for Uncovering and Manipulating Human Perceptual Variability"/>
     
 
     <!--Open Graph Description-->
@@ -55,7 +55,7 @@
 
     <!-- Title -->
     
-    <title>Synthesizing Images on Perceptual Boundaries of ANNs for Uncovering and Modulating Individual Human Percepts - Hi, this is Jiachen</title>
+    <title>Synthesizing Images on Perceptual Boundaries of ANNs for Uncovering and Manipulating Human Perceptual Variability - Hi, this is Jiachen</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -159,7 +159,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>Synthesizing Images on Perceptual Boundaries of ANNs for Uncovering and Modulating Individual Human Percepts</h1>
+                    <h1>Synthesizing Images on Perceptual Boundaries of ANNs for Uncovering and Manipulating Human Perceptual Variability</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
@@ -188,96 +188,78 @@
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <p>Authors: Chen Wei*, Chi Zhang*, <strong>Jiachen Zou</strong>, Haotian Deng, Dietmar Heinke, Quanying Liu<br><small>*Chen Wei and Chi Zhang contributed equally to this work.</small><br>Date: October 2, 2024<br>Supervisor: Quanying Liu, Dietmar Heinke</p>
-<p><img src="/img/var_fig1.jpg" alt="varMNIST Motivation"></p>
-<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p><strong>Motivation:</strong><br>Human perception varies with ambiguous stimuli, and ANNs struggle to capture this variability. Understanding it is key to predicting decision-making in uncertain situations. This study explores whether generating images based on ANN perceptual boundaries can reveal differences in human perception.</p>
-<p><strong>Method:</strong><br>We developed a model that samples ANN boundaries to create images that induce varied human responses. These include stimuli that highlight perceptual differences and adversarial perturbations that subtly influence decisions. We tested these in a large-scale experiment, creating the varMNIST dataset.</p>
+<p><img src="/img/var_fig1.png" alt="varMNIST Motivation"></p>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p><strong>Motivation:</strong><br>Human perception varies with ambiguous stimuli, and ANNs struggle to capture this variability. Understanding it is key to predicting individual perception in uncertain situations. This study explores whether generating images based on ANN perceptual boundaries can reveal and manipulate human perceptual variability.</p>
+<p><strong>Method:</strong><br>We present a paradigm for studying human perceptual variability through image generation: <em>1) Generating &amp; labeling</em>: Images sampled from the decision boundaries of ANNs are used in human behavioral experiments to construct a high-variability dataset, varMNIST. <em>2) Predicting</em>: Human behavioral data are used to finetune models, aligning them with human perceptual variability at both the group level and individual level. <em>3) Manipulating</em>: Individual finetuned models are leveraged as adversarial classifiers to generate new images that amplify perceptual differences between individuals.</p>
 <p><strong>Contribution:</strong>  </p>
 <ul>
-<li>Created a model generating images that provoke diverse human perceptions, forming the varMNIST dataset.  </li>
-<li>Improved predictions of human decision-making by aligning ANN variability with human data.  </li>
-<li>Uncovered individual differences in perception, supporting personalized AI development.</li>
+<li>A novel generative approach to probe human perception.  </li>
+<li>Aligning human and ANN perceptual variability.  </li>
+<li>Revealing and manipulating individual decisions.</li>
 </ul>
-<h1 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h1><p><strong>Perceptual Boundaries of ANNs:</strong><br>We sampled images along ANN decision boundaries to induce high perceptual variability. Using two methods:</p>
+<!-- This adds space between the figures -->
+<div style="margin-top: 10px;"></div>
+
+<h1 id="Collecting-Human-Perceptual-Variability"><a href="#Collecting-Human-Perceptual-Variability" class="headerlink" title="Collecting Human Perceptual Variability"></a>Collecting Human Perceptual Variability</h1><p><strong>Generating images by sampling from the perceptual boundary of ANNs:</strong><br>We sampled images along ANN decision boundaries to induce high perceptual variability using two methods:</p>
 <ul>
 <li><em>Uncertainty Guidance</em>: Maximizes entropy in an ANN’s classification to generate ambiguous images near its decision boundary.</li>
 <li><em>Controversial Guidance</em>: Maximizes the KL divergence between two ANN models, producing images that highlight differences in their classifications.</li>
 </ul>
-<p><strong>Diffusion Model Regularization:</strong><br>To ensure natural-looking images, we used a classifier-free diffusion model that introduces prior information from the MNIST dataset. A reference-constrained method, guided by MSE loss, prevents mode collapse and ensures diverse, recognizable images.</p>
-<p><strong>Human Experiments &amp; Dataset Construction:</strong><br>We filtered generated images based on entropy and KL divergence, then tested them in a digit recognition task with human participants. Based on response times and entropy thresholds, we finalized 4,741 images that form the varMNIST dataset.</p>
+<p><strong>Improving generative quality by digit judgment surrogate:</strong><br>We conducted a digit judgment experiment, using participants’ judgments on whether generated images looked like handwritten digits to train a digit judgment proxy, which is then used to guide image generation.</p>
 <figure>
   <img src="/img/var_fig2.jpg" alt="framework">
-  <figcaption style="text-align: center; color: #004400; font-weight: bold;">Figure 1: The framework of constructing dataset.</figcaption>
+  <figcaption style="text-align: center; color: #004400; font-weight: bold;">Figure 1: Generating images to elicit human perceptual variability.</figcaption>
 </figure>
 
 <!-- This adds space between the figures -->
-<div style="margin-top: 30px;"></div>
-
-<h1 id="Human-Experiments-and-Behavioral-Analysis"><a href="#Human-Experiments-and-Behavioral-Analysis" class="headerlink" title="Human Experiments and Behavioral Analysis"></a>Human Experiments and Behavioral Analysis</h1><!-- This adds space between the figures -->
 <div style="margin-top: 10px;"></div>
 
-<p><strong>Entropy Distribution and Image Variability:</strong></p>
-<ul>
-<li>We used images generated by uncertainty and controversial guidance methods in digit recognition tasks. The example images in Fig.3 indicates the ability of generated images to evoke varying perceptual variability, making entropy a useful metric for image filtering.</li>
-</ul>
+<p><strong>Measuring Human Perceptual Variability by Recognition Experiment:</strong><br>We used the images synthesized using the two guidance methods, ANN perceptual boundary sampling and digit judgment surrogate, for the digit recognition human experiment.  A total of 19,952 images were used, with 123,000 trials conducted across 246 participants, resulting in the high perceptual variability dataset varMNIST.</p>
 <figure>
   <img src="/img/var_fig3.png" alt="framework">
-  <figcaption style="text-align: center; color: #004400; font-weight: bold;">Figure 2: Entropy distribution of digit recognition by human subjects.</figcaption>
+  <figcaption style="text-align: center; color: #004400; font-weight: bold;">Figure 2: Quantitative analysis of varMNIST.</figcaption>
 </figure>
 
 <!-- This adds space between the figures -->
 <div style="margin-top: 30px;"></div>
 
-<p><strong>Human vs. Model Entropy Comparison:</strong></p>
+<h1 id="Predicting-Human-Perceptual-Variability"><a href="#Predicting-Human-Perceptual-Variability" class="headerlink" title="Predicting Human Perceptual Variability"></a>Predicting Human Perceptual Variability</h1><!-- This adds space between the figures -->
+<div style="margin-top: 10px;"></div>
+
+<p><strong>Fine-tuning Models for Human Alignment:</strong></p>
 <ul>
-<li>Human response entropy correlated positively with model-predicted entropy, though the model’s predictions initially clustered near zero. After fine-tuning with human behavioral data, the correlation improved significantly, aligning model predictions more closely with human behavior.</li>
+<li>We used a mixed training approach to fine-tune models, combining MNIST and varMNIST datasets for group training and varMNIST-i, varMNIST, and MNIST for individual training. Fine-tuning improved model accuracy, with individual fine-tuning providing additional gains.</li>
 </ul>
-<p><strong>Response Time (RT) Analysis:</strong>  </p>
+<p><strong>Different Classifiers Show Varying Fine-tuning Performance:</strong></p>
 <ul>
-<li>A positive correlation was found between entropy and RT (Pearson’s correlation&#x3D;1.17e-17), suggesting that higher perceptual variability leads to longer decision times. This makes RT a valuable supplementary measure when filtering images for perceptual variability.</li>
+<li>Fine-tuning enhanced the performance of most classifiers, with VIT and MLP showing the largest improvements, while LRM exhibited the weakest adaptability.</li>
+</ul>
+<p><strong>Performance across Images with Varying Entropy Levels:</strong>  </p>
+<ul>
+<li>Fine-tuned models outperformed the base model across all task difficulties, with individual fine-tuning providing the most benefit for more challenging (high-entropy) samples, highlighting the model’s improved adaptability to complex stimuli.</li>
 </ul>
 <figure>
-  <img src="/img/var_fig4.jpg" alt="framework">
-  <figcaption style="text-align: center; color: #004400; font-weight: bold;">Figure 3: Quantitative analysis of behavioral measurements. (a) Positive correlation between behavior-calculated and model-predicted entropy. (b) Improvement in the correlation between behavior-calculated and model-predicted entropy after alignment. (c) Distribution of RT. (d) Positive correlation between RT and entropy.</figcaption>
+  <img src="/img/var_fig4.png" alt="framework">
+  <figcaption style="text-align: center; color: #004400; font-weight: bold;">Figure 3: Human alignment results. (a) Model accuracy comparison. (b) Classifier fine-tuning performance. (c) Human-model entropy correlation. (d) Performance across entropy levels.</figcaption>
 </figure>
 
 <!-- This adds space between the figures -->
 <div style="margin-top: 30px;"></div>
 
-<h1 id="Variability-alignment-between-humans-and-networks"><a href="#Variability-alignment-between-humans-and-networks" class="headerlink" title="Variability alignment between humans and networks"></a>Variability alignment between humans and networks</h1><p><strong>Fine-Tuning for Perceptual Alignment:</strong></p>
+<h1 id="Manipulating-human-perceptual-variablity"><a href="#Manipulating-human-perceptual-variablity" class="headerlink" title="Manipulating human perceptual variablity"></a>Manipulating human perceptual variablity</h1><p><strong>Experimental Paradigm:</strong></p>
 <ul>
-<li>ANN models had low accuracy (0.2802) on varMNIST, revealing a gap in perceptual variability between humans and networks. After:<br><em>Population-Level Fine-Tuning</em> with data from all participants, accuracy improved to 0.5569.<br><em>Subject-Level Fine-Tuning</em> with individual data, accuracy increased to 0.6230, highlighting individual perceptual differences.</li>
+<li>We tested if fine-tuned individual models could amplify perceptual differences and guide decisions. In the first round, 500 varMNIST samples were used to fine-tune individual models. In the second round, controversial stimuli generated from these models were presented to pairs of participants to evaluate if they could guide decision directions.</li>
+</ul>
+<p><strong>Manipulation Results:</strong></p>
+<ul>
+<li><p><em>Guidance Outcome</em> (success, bias, or failure): Individual fine-tuning improved the success rate by 3%, reduced failures by 4%, and increased bias by 1% compared to varMNIST, even with a small sample size.</p>
+</li>
+<li><p><em>Targeted Ratio</em> (the proportion of trials where participants’ choices aligned with the guidance direction): The targeted ratio improved by 12%, showing that fine-tuning enhanced the model’s ability to guide decisions more effectively and precisely.</p>
+</li>
 </ul>
 <figure>
-  <img src="/img/var_fig5.jpg" alt="framework">
-  <figcaption style="text-align: center; color: #004400; font-weight: bold;">Figure 4: Alignment of model and human behavior on the generated dataset. The x-axis labels are in the format "Training dataset (Test Dataset)", indicating that the model was trained on the "Training dataset" and the accuracy was calculated on the "Test dataset". </figcaption>
-</figure>
-
-<!-- This adds space between the figures -->
-<div style="margin-top: 30px;"></div>
-
-<p><strong>Subject Clustering Analysis:</strong></p>
-<ul>
-<li>Participants were grouped into eight clusters based on behavior similarity. Models predicted in-cluster behavior more accurately than out-cluster, confirming significant perceptual differences across participants.</li>
-</ul>
-<figure>
-  <img src="/img/var_fig6.png" alt="framework">
-  <figcaption style="text-align: center; color: #004400; font-weight: bold;">Figure 5: Subject clustering analysis. (a) Subject similarity matrix and clustering results. (b) Performance of the subject-finetuned model in predicting data from different groups.</figcaption>
-</figure>
-
-<!-- This adds space between the figures -->
-<div style="margin-top: 30px;"></div>
-
-<h1 id="Controversial-stimuli-between-subjects-unveil-individual-differences-in-perceptual-variability"><a href="#Controversial-stimuli-between-subjects-unveil-individual-differences-in-perceptual-variability" class="headerlink" title="Controversial stimuli between subjects unveil individual differences in perceptual variability"></a>Controversial stimuli between subjects unveil individual differences in perceptual variability</h1><p><strong>Generating Controversial Stimuli:</strong></p>
-<ul>
-<li>Using fine-tuned models, we generated controversial stimuli to explore individual perceptual differences. We compared:<br><em>Subject-Subject Testing</em>: Adversarial classifiers created stimuli that caused two individuals to make different decisions, highlighting their perceptual differences.<br><em>Subject-Group Testing</em>: Stimuli were generated between an individual’s fine-tuned model and a group model, revealing differences between the individual and the collective.</li>
-</ul>
-<p><strong>Disagreement Patterns:</strong> </p>
-<ul>
-<li>We identified typical patterns in controversial stimuli, called <em>disagreement patterns</em>. For instance, some subjects consistently disagreed on digits like 3 and 7, or 3 and 8. These patterns show that even in seemingly objective tasks like digit recognition, individual differences and preferences exist.</li>
-</ul>
-<figure>
-  <img src="/img/var_fig7.jpg" alt="framework">
-  <figcaption style="text-align: center; color: #004400; font-weight: bold;">Figure 6: Overview of patterns among different models in digit classification. (a) Example of disagreement patterns between different models. (b) Distribution of KL divergences between MNIST, varMNIST, and controversial samples. (c) Conceptual diagram of disagreement patterns.</figcaption>
+  <img src="/img/var_fig5.png" alt="framework">
+  <figcaption style="text-align: center; color: #004400; font-weight: bold;">Figure 4: Manipulation analysis. (a) Experiment process. (b) Guidance outcomes. (c) Guidance success rates. (d) Targeted ratios.</figcaption>
 </figure>
 
 <!-- This adds space between the figures -->
@@ -285,20 +267,11 @@
 
 <h1 id="Discussion"><a href="#Discussion" class="headerlink" title="Discussion"></a>Discussion</h1><p><strong>Key Findings:</strong>  </p>
 <ul>
-<li>We generated stimuli from ANN perceptual boundaries, effectively evoking diverse human perceptual experiences.  </li>
-<li>Controversial stimuli revealed individual differences in human perception, advancing understanding of variability between humans and AI.</li>
+<li>Eliciting Human Perceptual Variability Through Generated Samples.</li>
+<li>Achieving Individual Alignment by Predicting Human Perceptual Variability.</li>
+<li>Revealing and Manipulating Perceptual Variability Using Individual Models.</li>
 </ul>
-<p><strong>Advantages Over Prior Work:</strong>  </p>
-<ul>
-<li>Unlike previous studies that focused on either humans or ANNs, our method influences both, allowing for a more comprehensive analysis of perceptual boundaries.   </li>
-<li>The use of diffusion models increases image naturalness and sampling flexibility, enhancing human-AI perceptual alignment.</li>
-</ul>
-<p><strong>Broader Impact:</strong>  </p>
-<ul>
-<li>Our framework enables personalized perceptual modulation, making studies on human perception more efficient.  </li>
-<li>Combining controversial and adversarial stimuli with diffusion models significantly improves the generation of impactful stimuli.</li>
-</ul>
-<p><strong>Limitations and Future Work:</strong>  </p>
+<p><strong>Future Works:</strong>  </p>
 <ul>
 <li>Expanding the dataset to natural images and diverse participants will better capture human variability.  </li>
 <li>Further improvements are needed in AI-human alignment using optimal experimental design.</li>
